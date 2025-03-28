@@ -15,7 +15,7 @@ Ditambahkan area jurang di level. Jika pemain terjatuh, maka scene akan di-reloa
 Terdapat zona tujuan (goal) yang ketika disentuh oleh pemain, akan memicu pergantian scene ke **WinScreen**. Sistem ini dibuat menggunakan `Area3D` dan deteksi `body_entered`.
 
 ### 6. Pick Up Item (Bola)
-Ditambahkan item berupa bola yang dapat diambil oleh pemain. Sistem pickup dilakukan dengan:
+Ditambahkan item berupa bola yang dapat diambil oleh pemain. Sistem pickup dilakukan dengan mendekati bola lalu klik E:
 - RayCast3D yang mendeteksi objek di depan kamera
 - Sistem `Interactable` yang memanggil fungsi `interact()` pada item
 Apabila player mengambil bola, maka akan ada visual seperti player mengambil bola. Bola tersebut akan ada di depan player dan bisa dibawa kemana-mana.

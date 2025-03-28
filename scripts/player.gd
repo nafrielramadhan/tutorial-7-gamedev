@@ -1,14 +1,22 @@
 extends CharacterBody3D
 
+var inventory: Array = []
+
 @export var speed: float = 10.0
+@export var sprint_speed: float = 20.0
+@export var crouch_speed: float = 5.0
 @export var acceleration: float = 5.0
 @export var gravity: float = 9.8
 @export var jump_power: float = 5.0
 @export var mouse_sensitivity: float = 0.3
 
-@onready var head: Node3D = $Head
+@export var crouch_height: float = -0.5        
+@export var normal_height: float = 0.0          
+@export var crouch_lerp_speed: float = 8.0      
 
+@onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
+@onready var ray: RayCast3D = $Head/Camera3D/RayCast3D
 
 var camera_x_rotation: float = 0.0
 
@@ -40,16 +48,28 @@ func _physics_process(delta):
 
 	movement_vector = movement_vector.normalized()
 
-	velocity.x = lerp(velocity.x, movement_vector.x * speed, acceleration * delta)
-	velocity.z = lerp(velocity.z, movement_vector.z * speed, acceleration * delta)
+	var target_speed = speed
 
-	# Apply gravity
+	if Input.is_action_pressed("sprint"):
+		target_speed = sprint_speed
+	elif Input.is_action_pressed("crouch"):
+		target_speed = crouch_speed
+
+	var target_y = normal_height
+	if Input.is_action_pressed("crouch"):
+		target_y = crouch_height
+
+	head.position.y = lerp(head.position.y, target_y, crouch_lerp_speed * delta)
+
+	velocity.x = lerp(velocity.x, movement_vector.x * target_speed, acceleration * delta)
+	velocity.z = lerp(velocity.z, movement_vector.z * target_speed, acceleration * delta)
+
+	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Jumping
+	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_power
 
 	move_and_slide()
-	

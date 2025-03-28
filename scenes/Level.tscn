@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://65h4c0mrp6k7"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Box.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dfeevmec6fsyy" path="res://Scenes/Box.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://cqrhmh7xskljj" path="res://scenes/Player.tscn" id="2_6hied"]
 [ext_resource type="Script" path="res://scripts/interactible.gd" id="2_vi3y1"]
 [ext_resource type="Script" path="res://scripts/switch.gd" id="3_vxe8l"]
@@ -78,3 +78,4 @@ light = NodePath("../../OmniLight3D")
 shape = SubResource("5")
 
 [node name="Player" parent="." instance=ExtResource("2_6hied")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

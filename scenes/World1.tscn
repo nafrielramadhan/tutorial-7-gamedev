@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xabvt01s5tq"]
+[gd_scene load_steps=5 format=3 uid="uid://xabvt01s5tq"]
 
 [ext_resource type="PackedScene" uid="uid://drb56hwbff2xn" path="res://scenes/ObjLamp.tscn" id="1_yp6iy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c40q5"]
+albedo_color = Color(0.14876, 0.77568, 0.635106, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mote5"]
 albedo_color = Color(0, 0.709804, 1, 1)
@@ -17,6 +20,7 @@ use_collision = true
 use_collision = true
 flip_faces = true
 size = Vector3(15, 10, 45)
+material = SubResource("StandardMaterial3D_c40q5")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, -12.5)

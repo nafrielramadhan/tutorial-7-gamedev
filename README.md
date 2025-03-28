@@ -8,11 +8,8 @@ Pemain dapat berlari dengan menekan tombol **Shift**. Kecepatan karakter meningk
 ### 2. Crouching (Jongkok dengan Control)
 Pemain dapat berjalan lebih lambat sambil jongkok dengan menekan tombol **Control**. Selain kecepatan dikurangi, posisi kamera juga turun ke bawah secara halus untuk mensimulasikan efek crouch. Transisi ini diatur dengan `lerp()` agar smooth.
 
-### 3. Lampu Interaktif
-Level memiliki lampu yang dapat dinyalakan dan dimatikan dengan menekan tombol **E** saat berada dekat dengan objek lampu. Mekanisme ini menggunakan sistem `Interactable` sehingga objek dapat merespons fungsi `interact()`.
-
-### 4. Jurang dan Restart Level
-Ditambahkan area jurang di level. Jika pemain terjatuh melewati ketinggian tertentu, maka scene akan di-reload secara otomatis untuk me-reset posisi pemain (restart level).
+### 3. Jurang dan Restart Level
+Ditambahkan area jurang di level. Jika pemain terjatuh, maka scene akan di-reload secara otomatis untuk me-reset posisi pemain (restart level).
 
 ### 5. End Goal & Win Screen
 Terdapat zona tujuan (goal) yang ketika disentuh oleh pemain, akan memicu pergantian scene ke **WinScreen**. Sistem ini dibuat menggunakan `Area3D` dan deteksi `body_entered`.
@@ -21,12 +18,10 @@ Terdapat zona tujuan (goal) yang ketika disentuh oleh pemain, akan memicu pergan
 Ditambahkan item berupa bola yang dapat diambil oleh pemain. Sistem pickup dilakukan dengan:
 - RayCast3D yang mendeteksi objek di depan kamera
 - Sistem `Interactable` yang memanggil fungsi `interact()` pada item
-- Item masuk ke `inventory` dan menghilang dari dunia
-
-Jumlah item yang berhasil dipickup juga dapat ditampilkan lewat GUI.
+Apabila player mengambil bola, maka akan ada visual seperti player mengambil bola. Bola tersebut akan ada di depan player dan bisa dibawa kemana-mana.
 
 ### 7. Polish Level & Visual
 Level 1 ditingkatkan secara visual dengan menambahkan:
 - Pencahayaan (OmniLight3D)
-- Beberapa objek dekoratif
-- Tata letak ruangan yang lebih rapi dan menarik secara visual
+- Beberapa objek dekoratif, seperti lampu
+- Tata letak ruangan yang lebih rapi dan menarik secara visual.

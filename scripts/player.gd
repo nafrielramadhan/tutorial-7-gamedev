@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-var inventory: Array = []
-
 @export var speed: float = 10.0
 @export var sprint_speed: float = 20.0
 @export var crouch_speed: float = 5.0
@@ -19,7 +17,7 @@ var inventory: Array = []
 @onready var ray: RayCast3D = $Head/Camera3D/RayCast3D
 
 var camera_x_rotation: float = 0.0
-
+   
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 

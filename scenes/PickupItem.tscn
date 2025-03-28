@@ -1,6 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4wpfrrqrf8y4"]
+[gd_scene load_steps=5 format=3 uid="uid://dkma4bior4r6w"]
 
-[ext_resource type="Script" path="res://scripts/PickupItem.gd" id="1_b1mug"]
+[sub_resource type="GDScript" id="GDScript_ggd2x"]
+script/source = "# PickupItem.gd
+extends Interactable    # cukup ini aja, jangan class_name lagi
+
+@export var item_name: String = \"Ball\"
+
+func interact():
+	var player = get_node(\"/root/Level1/Player\")
+	player.inventory.append(item_name)
+	print(\"Picked up:\", item_name)
+	print(\"Inventory:\", player.inventory)
+	queue_free()
+"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_71nah"]
 
@@ -11,7 +23,7 @@ albedo_color = Color(0.635294, 0.552941, 1, 1)
 metallic = 0.2
 
 [node name="PickupItem" type="Area3D"]
-script = ExtResource("1_b1mug")
+script = SubResource("GDScript_ggd2x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_71nah")

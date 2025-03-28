@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8pggg2i52g5s"]
+[gd_scene load_steps=5 format=3 uid="uid://c8pggg2i52g5s"]
 
 [ext_resource type="Script" path="res://scripts/goal.gd" id="1_wpyjp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1isyt"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwjnl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2h0g"]
+albedo_color = Color(0.635294, 1, 0.415686, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nmj2l"]
 
 [node name="Goal" type="Area3D"]
 script = ExtResource("1_wpyjp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_1isyt")
+shape = SubResource("BoxShape3D_gwjnl")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+material_override = SubResource("StandardMaterial3D_o2h0g")
+mesh = SubResource("BoxMesh_nmj2l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

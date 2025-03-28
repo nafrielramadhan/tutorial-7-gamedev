@@ -23,5 +23,7 @@ Apabila player mengambil bola, maka akan ada visual seperti player mengambil bol
 ### 7. Polish Level & Visual
 Level 1 ditingkatkan secara visual dengan menambahkan:
 - Pencahayaan (OmniLight3D)
-- Beberapa objek dekoratif, seperti lampu
+- Beberapa objek dekoratif, seperti lampu dan lorong
 - Tata letak ruangan yang lebih rapi dan menarik secara visual.
+
+Saya juga menambah Level 2, jadi goal pada level 1 akan membuat player pindah ke level 2, lalu goal pada level 2 akan masuk ke scene WinScreen.

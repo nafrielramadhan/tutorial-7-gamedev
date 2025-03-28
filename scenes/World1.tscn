@@ -71,4 +71,4 @@ sceneName = "Level1"
 
 [node name="Goal" parent="." instance=ExtResource("3_pll1o")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, -26)
-sceneName = "WinScreen"
+sceneName = "Level2"

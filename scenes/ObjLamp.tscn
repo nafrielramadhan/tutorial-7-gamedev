@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://drb56hwbff2xn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spvdl"]
+albedo_color = Color(0.426459, 0.521607, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv6dt"]
+albedo_color = Color(0.427451, 0.521569, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m25v8"]
+albedo_color = Color(1, 1, 0, 1)
+
+[node name="ObjLamp" type="Node3D"]
+
+[node name="Lamp" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Lamp"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.2, 0)
+cone = true
+material = SubResource("StandardMaterial3D_spvdl")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Lamp"]
+transform = Transform3D(0.3, 0, 0, 0, 1, 0, 0, 0, 0.3, 0, 2, 0)
+height = 4.0
+material = SubResource("StandardMaterial3D_yv6dt")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 12
+material = SubResource("StandardMaterial3D_m25v8")
